@@ -536,6 +536,7 @@ class CircularTimePicker(BoxLayout):
         return datetime.time(*self.time_list)
     def _set_time(self, dt):
         self.time_list = [dt.hour, dt.minute]
+        self._am = True if dt.hour <= 12 else False
     time = AliasProperty(_get_time, _set_time, bind=("time_list",))
     """Selected time as a datetime.time object.
 
