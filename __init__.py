@@ -418,7 +418,7 @@ class CircularMinutePicker(CircularNumberPicker):
     def __init__(self, **kw):
         super(CircularMinutePicker, self).__init__(**kw)
         self.min = 0
-        self.max = 60
+        self.max = 59
         self.multiples_of = 5
         self.number_format_string = "{:02d}"
         self.direction = "cw"
@@ -536,6 +536,7 @@ class CircularTimePicker(BoxLayout):
         return datetime.time(*self.time_list)
     def _set_time(self, dt):
         self.time_list = [dt.hour, dt.minute]
+        self._am = True if dt.hour <= 12 else False
     time = AliasProperty(_get_time, _set_time, bind=("time_list",))
     """Selected time as a datetime.time object.
 
