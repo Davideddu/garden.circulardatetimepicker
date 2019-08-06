@@ -652,7 +652,7 @@ class CircularTimePicker(BoxLayout):
         picker.pos = container.pos
         picker.size = container.size
         picker.selector_color = self.selector_color
-        picker.color = self.color
+        picker.color = self.color + [1]
         picker.selector_alpha = self.selector_alpha
 
         if noanim:
